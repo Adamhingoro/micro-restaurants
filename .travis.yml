@@ -18,7 +18,7 @@ before_install:
 
 install:
   - cd microservice-customers-api/
-  - npm install --only=prod --no-optional && npm cache clean --force
+  - npm install --no-optional
   - npm run build
   - cd ../
   - docker-compose -f ./deployment/docker/docker-compose-build.yaml build --parallel 
