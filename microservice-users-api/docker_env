@@ -1,0 +1,13 @@
+POSTGRESS_USERNAME=postgres
+POSTGRESS_PASSWORD=postgres
+POSTGRESS_DB=postgres
+POSTGRESS_HOST=database-1.c5vtzurbb3do.ap-south-1.rds.amazonaws.com
+AWS_REGION=ap-south-1
+AWS_PROFILE=default
+AWS_BUCKET=micro-restaurants
+JWT_SECRET=asdgasdf
+URL=http://localhost:8080
+LOCAL_MYSQL_USERNAME=root
+LOCAL_MYSQL_PASSWORD=root
+LOCAL_MYSQL_HOST=localhost
+LOCAL_MYSQL_DATABASE=microserviceapi

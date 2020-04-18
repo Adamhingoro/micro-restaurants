@@ -1,0 +1,7 @@
+#!/bin/bash
+echo "Building up the images"
+docker-compose -f ./deployment/docker/docker-compose-build.yaml build 
+echo "Building up the images"
+#docker-compose -f ./deployment/docker/docker-compose-build.yaml push 
+echo "running the images"
+docker-compose -f ./deployment/docker/docker-compose.yaml up

@@ -1,0 +1,68 @@
+version: "3"
+services:
+  restaurant-reverseproxy:
+      image: adamhingoro/restaurant-reverseproxy
+      ports:
+          - 8100:8080
+      restart: always
+      depends_on:
+        - frontend
+        - admin-panel
+        - microservice-users-api
+        - microservice-restaurants-api
+  frontend:
+    image: adamhingoro/microservice-restaurant-front:latest
+    environment:
+      URL: "http://localhost:8100"
+  admin-panel:
+    image: adamhingoro/microservicefrontend:latest
+    environment:
+      URL: "http://localhost:8100"
+  microservice-users-api:
+      image: adamhingoro/restaurant-microservice-users-api:latest
+      environment:
+        POSTGRESS_USERNAME: $POSTGRESS_USERNAME
+        POSTGRESS_PASSWORD: $POSTGRESS_PASSWORD 
+        POSTGRESS_DB: $POSTGRESS_DB 
+        POSTGRESS_HOST: $POSTGRESS_HOST 
+        AWS_REGION: $AWS_REGION 
+        AWS_PROFILE: $AWS_PROFILE 
+        AWS_BUCKET: $AWS_BUCKET
+        JWT_SECRET: $JWT_SECRET
+        URL: "http://localhost:8100"
+  microservice-restaurants-api:
+      image: adamhingoro/restaurant-microservice-restaurants-api:latest
+      environment:
+        POSTGRESS_USERNAME: $POSTGRESS_USERNAME
+        POSTGRESS_PASSWORD: $POSTGRESS_PASSWORD 
+        POSTGRESS_DB: $POSTGRESS_DB 
+        POSTGRESS_HOST: $POSTGRESS_HOST 
+        AWS_REGION: $AWS_REGION 
+        AWS_PROFILE: $AWS_PROFILE 
+        AWS_BUCKET: $AWS_BUCKET
+        JWT_SECRET: $JWT_SECRET
+        URL: "http://localhost:8100"
+  microservice-orders-api:
+      image: adamhingoro/restaurant-microservice-orders-api:latest
+      environment:
+        POSTGRESS_USERNAME: $POSTGRESS_USERNAME
+        POSTGRESS_PASSWORD: $POSTGRESS_PASSWORD 
+        POSTGRESS_DB: $POSTGRESS_DB 
+        POSTGRESS_HOST: $POSTGRESS_HOST 
+        AWS_REGION: $AWS_REGION 
+        AWS_PROFILE: $AWS_PROFILE 
+        AWS_BUCKET: $AWS_BUCKET
+        JWT_SECRET: $JWT_SECRET
+        URL: "http://localhost:8100"
+  microservice-customers-api:
+      image: adamhingoro/restaurant-microservice-customers-api:latest
+      environment:
+        POSTGRESS_USERNAME: $POSTGRESS_USERNAME
+        POSTGRESS_PASSWORD: $POSTGRESS_PASSWORD 
+        POSTGRESS_DB: $POSTGRESS_DB 
+        POSTGRESS_HOST: $POSTGRESS_HOST 
+        AWS_REGION: $AWS_REGION 
+        AWS_PROFILE: $AWS_PROFILE 
+        AWS_BUCKET: $AWS_BUCKET
+        JWT_SECRET: $JWT_SECRET
+        URL: "http://localhost:8100"

@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    service: admin-panel
+  name: admin-panel
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        service: admin-panel
+        api: external        
+    spec:
+      containers:
+      - image: adamhingoro/microservicefrontend:latest
+        name: admin-panel
+        imagePullPolicy: Always          
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"                
+      restartPolicy: Always
+

@@ -1,0 +1,9 @@
+cd ../../
+cd microservice-restaurant-front/
+npm num build
+cd ../
+cd microservice-frontend/
+cd ../
+cd ./deployment/docker
+docker build --tag adamhingoro/restaurant-reverseproxy:latest .
+docker-compose up
