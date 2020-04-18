@@ -1,4 +1,5 @@
 language: node_js
+node_js: 12
 
 services: docker
 
@@ -17,7 +18,7 @@ before_install:
 
 install:
   - cd microservice-customers-api/
-  - npm install 
+  - npm install --only=prod --no-optional && npm cache clean --force
   - npm run build
   - cd ../
   - docker-compose -f ./deployment/docker/docker-compose-build.yaml build --parallel 
