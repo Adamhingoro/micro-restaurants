@@ -21,4 +21,24 @@ install:
   - npm install --no-optional
   - npm run build
   - cd ../
+  - cd microservice-frontend/
+  - npm install --no-optional
+  - npm run build
+  - cd ../
+  - cd microservice-orders-api/
+  - npm install --no-optional
+  - npm run build
+  - cd ../
+  - cd microservice-restaurant-front/
+  - npm install --no-optional
+  - npm run build
+  - cd ../
+  - cd microservice-restaurants-api/
+  - npm install --no-optional
+  - npm run build
+  - cd ../
+  - cd microservice-users-api/
+  - npm install --no-optional
+  - npm run build
+  - cd ../
   - docker-compose -f ./deployment/docker/docker-compose-build.yaml build --parallel 
