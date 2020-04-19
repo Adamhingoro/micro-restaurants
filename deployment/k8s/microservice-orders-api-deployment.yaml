@@ -26,11 +26,8 @@ spec:
             memory: "1024Mi"
             cpu: "200m"                
         env:
-          - name: URL
-            valueFrom:
-              configMapKeyRef:
-                name: env-config
-                key: URL
+          - name: URL 
+            value: "http://restaurant-reverseproxy:8080"
           - name: AWS_BUCKET
             valueFrom:
               configMapKeyRef:
