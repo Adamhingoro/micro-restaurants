@@ -1,0 +1,23 @@
+#!/bin/bash
+echo "Applying the envoriment variables and secrets"
+kubectl apply -f ./aws-secret.yaml
+kubectl apply -f ./env-configmap.yaml
+kubectl apply -f ./env-secret.yaml
+
+echo "Applying all services"
+kubectl apply -f ./admin-panel-service.yaml
+kubectl apply -f ./frontend-service.yaml
+kubectl apply -f ./microservice-customers-api-service.yaml
+kubectl apply -f ./microservice-users-api-service.yaml
+kubectl apply -f ./microservice-restaurants-api-service.yaml
+kubectl apply -f ./microservice-orders-api-service.yaml
+kubectl apply -f ./restaurant-reverseproxy-service.yaml
+
+echo "Applying all deployments"
+kubectl apply -f ./admin-panel-deployment.yaml
+kubectl apply -f ./frontend-deployment.yaml
+kubectl apply -f ./microservice-customers-api-deployment.yaml
+kubectl apply -f ./microservice-users-api-deployment.yaml
+kubectl apply -f ./microservice-restaurants-api-deployment.yaml
+kubectl apply -f ./microservice-orders-api-deployment.yaml
+kubectl apply -f ./restaurant-reverseproxy-deployment.yaml
