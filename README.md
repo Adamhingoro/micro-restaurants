@@ -56,4 +56,20 @@ once you deploy the application you can access the frontend : http://[your-rever
 email `adam@gmail.com`
 password `computer`
 
+# UML Diagram 
+```mermaid
+graph LR
+A[Internet] --> B[kubernetes cluster]
+B --> C((reverse-proxy))
+C -- /front --> D[Svelte Frontend]
+C -- /admin --> E[Svelte Admin-panel]
+C -- /users --> F[Service for USERS]
+F --> K((Authentication))
+C -- /restaurants --> G
+C -- /menus --> G
+C -- /menuitems --> G[Service for RESTAURANTS and its childrens]
+G -- Image Uploads -->L((Amazone S3))
+C -- /orders --> I[Service for ORDERS]
+C -- /orders --> J[Service for CUSTOMERS]
+```
 # Thank You
