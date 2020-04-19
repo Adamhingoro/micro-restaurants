@@ -23,4 +23,4 @@ kubectl apply -f ./microservice-orders-api-deployment.yaml
 kubectl apply -f ./restaurant-reverseproxy-deployment.yaml
 
 
-kubectl port-forward service/restaurant-reverseproxy 8100:8100
+#kubectl port-forward service/restaurant-reverseproxy 8100:8100
