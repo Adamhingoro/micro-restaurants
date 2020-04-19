@@ -1,5 +1,6 @@
 
 # Restaurants Customers API
+[![Build Status](https://travis-ci.com/Adamhingoro/micro-restaurants.svg?branch=master)](https://travis-ci.com/Adamhingoro/micro-restaurants)
 
 this api is build using microservices skeleton
 https://github.com/Adamhingoro/microservice-skeleton
