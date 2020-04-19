@@ -2,12 +2,12 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    service: admin-panel
-  name: admin-panel
+    service: microservice-users-api
+  name: microservice-users-api
 spec:
   ports:
   - name: "8080"
     port: 8080
     targetPort: 8080
   selector:
-    service: admin-panel
+    service: microservice-users-api
