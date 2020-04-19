@@ -10,6 +10,8 @@ services:
         - admin-panel
         - microservice-users-api
         - microservice-restaurants-api
+        - microservice-orders-api
+        - microservice-custoemrs-api
   frontend:
     image: adamhingoro/microservice-restaurant-front:latest
     environment:
