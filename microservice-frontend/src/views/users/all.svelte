@@ -1,5 +1,5 @@
 <script>
-import { GetAllUsers } from '../../stores/users.store.js';
+import { GetAllUsers , DeleteUserById ,GetUserById } from '../../stores/users.store.js';
 import { authorized , user , token} from '../../stores/auth.store.js';
 import RestaurantLink from "../../partialviews/restaurantlink.svelte";
 import { navigate } from "svelte-routing";
@@ -24,6 +24,19 @@ console.log("Users" , promise);
 
 const newUserpane = () =>{
     navigate("/admin/users/new", { replace: true });
+}
+
+const HandleDelete = async (id) => {
+    const user = await GetUserById($token , id);
+    if (confirm("Are you sure you want delete user " + user.fullName + "("+user.email+")")) {
+        const res = await DeleteUserById($token , id);
+        if(res.status == 200){
+            alert("User Deleted successfully");
+            promise = GetAllUsers($token);
+        } else {
+            alert("Error Deleting");
+        }
+    }
 }
 
 
@@ -68,7 +81,8 @@ const newUserpane = () =>{
                                 {/if}
                             </td>
                             <td>
-                                <a href="/admin/users/{id}" use:link><i>Edit</i></a>
+                                <a class="btn btn-primary btn-sm" href="/admin/users/{id}" use:link><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+                                <button class="btn btn-danger btn-sm" on:click={ () => { HandleDelete(id) }}><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
                             </td>
                         </tr>
                     {/each}

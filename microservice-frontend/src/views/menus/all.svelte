@@ -1,5 +1,5 @@
 <script>
-import { GetAllMenus , GetAllMenusByrestaurant } from "../../stores/menus.store.js";
+import { GetAllMenus , GetAllMenusByrestaurant , DeleteMenuById, GetMenuById } from "../../stores/menus.store.js";
 import { authorized , user , token} from '../../stores/auth.store.js';
 import { navigate } from "svelte-routing";
 import { link } from "svelte-routing";
@@ -24,6 +24,22 @@ const NewObjectAnchor = () =>{
     navigate("/admin/menus/new", { replace: true });
 }
 
+const HandleDelete = async (id) => {
+    const menu = await GetMenuById($token , id);
+    if (confirm("Are you sure you want delete menu " + menu.name)) {
+        const res = await DeleteMenuById($token , id);
+        if(res.status == 200){
+            alert("Menu Deleted successfully");
+            if($user.type == 1){
+                promise = GetAllMenus($token);
+            } else {
+                promise = GetAllMenusByrestaurant($token , $user.ownership);
+            }
+        } else {
+            alert("Error Deleting");
+        }
+    }
+}
 
 
 </script>
@@ -62,8 +78,9 @@ const NewObjectAnchor = () =>{
                                 <td><RestaurantLink id={restaurantId} /></td>
                             {/if}
                             <td>
-                                <a href="/admin/menus/{id}" use:link><i>Edit</i></a>
-                                <a href="/admin/menus/{id}/menuitems" use:link><i>Items</i></a>
+                                <a class="btn btn-primary btn-sm" href="/admin/menus/{id}" use:link><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+                                <a class="btn btn-primary btn-sm" href="/admin/menus/{id}/menuitems" use:link><i class="fa fa-sitemap" aria-hidden="true"></i> Items</a>
+                                <button class="btn btn-danger btn-sm" on:click={ () => { HandleDelete(id) }}><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
                             </td>
                         </tr>
                     {/each}
