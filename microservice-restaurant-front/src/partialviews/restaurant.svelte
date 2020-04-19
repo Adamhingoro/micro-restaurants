@@ -4,11 +4,12 @@
     const OpenMenu = () =>{
         navigate(`/front/restaurant/${restaurant.id}`, { replace: true });
     }
+    let Image = "http://placehold.it/350x250" || restaurant.imageURL;
 </script>
 <div class="col col-md-12 main_box">
     <div class="row">
         <div class="col col-md-4">
-            <img class="img-rounded img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" >
+            <img class="img-rounded img-responsive"  src="{Image}" alt="{restaurant.name}" >
         </div>
         <div class="col col-md-8">
             <h1 class="restaurant_name">{restaurant.name}</h1>

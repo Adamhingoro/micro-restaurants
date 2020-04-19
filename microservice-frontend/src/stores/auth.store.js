@@ -1,5 +1,6 @@
 import { writable } from 'svelte/store';
 import axios from "axios";
+import { navigate } from "svelte-routing";
 
 const authorized = writable(localStorage.getItem("AUTHORIZED") || false);
 const api_hostname = "http://localhost:8100";
@@ -22,9 +23,9 @@ const LogoutUser = () => {
     user.set(null);
     token.set(null);
     authorized.set(null);
-    UpdateTokenStore([]);
-    UpdateUserStore([]);
-    UpdateAuthrorizedStore(false);
+    localStorage.removeItem("AUTH_USER");
+    localStorage.removeItem("AUTH_TOKEN");
+    localStorage.removeItem("AUTHORIZED");
 }
 
 const AuthenticateHandle = (email , password) => {
@@ -48,6 +49,8 @@ const AuthenticateHandle = (email , password) => {
         if(error){
             alert("Sorry invalid email or password");
             console.log(error);
+        } else {
+            navigate("/admin", { replace: true });
         }
     });
 }
