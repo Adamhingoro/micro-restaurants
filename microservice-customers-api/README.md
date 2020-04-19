@@ -38,16 +38,20 @@ The application uses the `@hapi/joi` `ValidatedRequestSchema` and it expects the
 	    state: string,
 	}
 
-## Steps for setup 
+## Steps for running locally 
 1. cd [to this directory]
 2. modify the `./src/config/config.ts`
     if you want to run locally I suggest you should use the local postgres database credentails in the `prod` or `dev`
 3. modify the envoriment in file `./src/database/sequelize.ts` 
     use the `config.prod` or `config.dev` as per your needs. 
-4. npm install
-5. npm run dev 
+4. `npm install`
+5. `npm run dev`
 
-Application will run on port `8080` 
+Application will run on port `8080`
+
+## Steps for running on container
+
+Please check the readme in the root direcory.
 
 ## Additional notes. 
 1. it uses sequelize and creates tables based on the models defined in the `./src/models/`
