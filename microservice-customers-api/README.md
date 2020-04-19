@@ -1,61 +1,56 @@
-# Microservice-Skeleton
-[![Build Status](https://travis-ci.com/Adamhingoro/microservice-skeleton.svg?branch=master)](https://travis-ci.com/Adamhingoro/microservice-skeleton)
-## Table of Contents
 
-- [About](#about)
-- [Getting Started](#getting_started)
-- [Usage](#usage)
-- [Contributing](../CONTRIBUTING.md)
+# Restaurants Customers API
 
-## About <a name = "about"></a>
+this api is build using microservices skeleton
+https://github.com/Adamhingoro/microservice-skeleton
+## Microservice Skeleton
+it is a simple skack microservice stack with all the important tools. 
+1. typescript
+2. expressjs 
+3. chai and mocha
+4. jsonwebtoken
+5. sequelize
 
-This is the basic skeleton for microservices using ExpressJS - TypeScript - Sequilize. what I am trying to do is that if I could create a simple structure with all the must-have-components of a microservice and build a CI/CD, Testing and development features around it then we can easilly use this skeleton and build services faster. 
+with preety much everything in place to help you get started. 
 
-## Contribution 
+## About This
 
-I highly encourage the developers to contribute and simple way is that you have to make a seperate branch and make a pull request in the end. Please make sure it passes all the tests and linters. other wise the pull-request will be rejected. 
+Initially it was a monolith application and now it is divided into the smaller parts which can be deployed on docker or any kubernetes cluster. 
 
-### branch-naming
+## Endpoints
 
-name your branch wisely. example branch names are `feature-events-sourcing` and `fixed-issue-no-1234`. please use dashed-names. 
+ 1. **GET** /customers/ 
+ 2. **GET** /customers/:id
+ 3. **POST** /customers/ 
+ 4. **PATCH** /customers/:id
+ 5. **DELETE** /customers/:id
+REST'ful standards are followed with appropiate response codes. 
 
-I have used the standard readme structure and everything beyond this line is not the part of this project. I will write it later.
+## Model
+The application uses the `@hapi/joi` `ValidatedRequestSchema` and it expects the following object while creating and patching. 
 
+    {
+	    fullName: string,
+	    email: string,
+	    address: string,
+	    city: string,
+	    country: string,
+	    state: string,
+	}
 
-## Getting Started <a name = "getting_started"></a> - AREA INCOMPLETE
+## Steps for setup 
+1. cd [to this directory]
+2. modify the `./src/config/config.ts`
+    if you want to run locally I suggest you should use the local postgres database credentails in the `prod` or `dev`
+3. modify the envoriment in file `./src/database/sequelize.ts` 
+    use the `config.prod` or `config.dev` as per your needs. 
+4. npm install
+5. npm run dev 
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+Application will run on port `8080` 
 
-### Prerequisites - AREA INCOMPLETE
+## Additional notes. 
+1. it uses sequelize and creates tables based on the models defined in the `./src/models/`
+2. You can use mysql for local as I have used. You have to change the dialect to `"mysql"` in file `./src/database/sequelize.ts` 
+3. It uses `chai` and `mocha` for testing but for now I haven't created any tests yet. 
 
-What things you need to install the software and how to install them.
-
-```
-Give examples
-```
-
-### Installing - AREA INCOMPLETE
-
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo.
-
-## Usage <a name = "usage"></a> - AREA INCOMPLETE
-
-Add notes about how to use the system.
-
-
-
-## Bucket Policy for AMAZON s3
