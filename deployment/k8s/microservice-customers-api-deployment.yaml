@@ -6,6 +6,11 @@ metadata:
   name: microservice-customers-api
 spec:
   replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 25%
   template:
     metadata:
       labels:
@@ -18,6 +23,13 @@ spec:
         imagePullPolicy: Always          
         ports:
         - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          successThreshold: 5
         resources:
           requests:
             memory: "64Mi"

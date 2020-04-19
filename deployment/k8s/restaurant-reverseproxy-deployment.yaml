@@ -6,6 +6,11 @@ metadata:
   name: restaurant-reverseproxy
 spec:
   replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 25%
   template:
     metadata:
       labels:
@@ -24,6 +29,13 @@ spec:
             cpu: "200m"       
         ports:
         - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          successThreshold: 5
       restartPolicy: Always
 
 
