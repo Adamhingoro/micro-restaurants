@@ -57,20 +57,5 @@ email `adam@gmail.com`
 password `computer`
 
 # UML Diagram 
-```mermaid
-graph LR
-A[Internet] --> B[kubernetes cluster]
-B --> C((reverse-proxy))
-C -- /front --> D[Svelte Frontend]
-C -- /admin --> E[Svelte Admin-panel]
-C -- /users --> F[Service for USERS]
-F --> K((Authentication))
-C -- /restaurants --> G
-C -- /menus --> G
-C -- /menuitems --> G[Service for RESTAURANTS and its childrens]
-G -- Image Uploads -->L((Amazone S3))
-C -- /orders --> I[Service for ORDERS]
-C -- /orders --> J[Service for CUSTOMERS]
-
-```
+[![](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFJcbkFbSW50ZXJuZXRdIC0tPiBCW2t1YmVybmV0ZXMgY2x1c3Rlcl1cbkIgLS0-IEMoKHJldmVyc2UtcHJveHkpKVxuQyAtLSAvZnJvbnQgLS0-IERbU3ZlbHRlIEZyb250ZW5kXVxuQyAtLSAvYWRtaW4gLS0-IEVbU3ZlbHRlIEFkbWluLXBhbmVsXVxuQyAtLSAvdXNlcnMgLS0-IEZbU2VydmljZSBmb3IgVVNFUlNdXG5GIC0tPiBLKChBdXRoZW50aWNhdGlvbikpXG5DIC0tIC9yZXN0YXVyYW50cyAtLT4gR1xuQyAtLSAvbWVudXMgLS0-IEdcbkMgLS0gL21lbnVpdGVtcyAtLT4gR1tTZXJ2aWNlIGZvciBSRVNUQVVSQU5UUyBhbmQgaXRzIGNoaWxkcmVuc11cbkcgLS0gSW1hZ2UgVXBsb2FkcyAtLT5MKChBbWF6b25lIFMzKSlcbkMgLS0gL29yZGVycyAtLT4gSVtTZXJ2aWNlIGZvciBPUkRFUlNdXG5DIC0tIC9vcmRlcnMgLS0-IEpbU2VydmljZSBmb3IgQ1VTVE9NRVJTXSIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFJcbkFbSW50ZXJuZXRdIC0tPiBCW2t1YmVybmV0ZXMgY2x1c3Rlcl1cbkIgLS0-IEMoKHJldmVyc2UtcHJveHkpKVxuQyAtLSAvZnJvbnQgLS0-IERbU3ZlbHRlIEZyb250ZW5kXVxuQyAtLSAvYWRtaW4gLS0-IEVbU3ZlbHRlIEFkbWluLXBhbmVsXVxuQyAtLSAvdXNlcnMgLS0-IEZbU2VydmljZSBmb3IgVVNFUlNdXG5GIC0tPiBLKChBdXRoZW50aWNhdGlvbikpXG5DIC0tIC9yZXN0YXVyYW50cyAtLT4gR1xuQyAtLSAvbWVudXMgLS0-IEdcbkMgLS0gL21lbnVpdGVtcyAtLT4gR1tTZXJ2aWNlIGZvciBSRVNUQVVSQU5UUyBhbmQgaXRzIGNoaWxkcmVuc11cbkcgLS0gSW1hZ2UgVXBsb2FkcyAtLT5MKChBbWF6b25lIFMzKSlcbkMgLS0gL29yZGVycyAtLT4gSVtTZXJ2aWNlIGZvciBPUkRFUlNdXG5DIC0tIC9vcmRlcnMgLS0-IEpbU2VydmljZSBmb3IgQ1VTVE9NRVJTXSIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
 # Thank You
