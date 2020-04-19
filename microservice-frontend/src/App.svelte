@@ -42,6 +42,7 @@
 	});
 
 	export let url = "";
+	console.log("URL IS " , url);
 
 </script>
 
@@ -105,6 +106,7 @@
 				<Route path="orders/:id" component="{EditOrderView}" />
 
 				<Route path="/"><HomeView /></Route>
+				<Route component="{HomeView}" />
 			</div>
 		</Router>
 	{/if}

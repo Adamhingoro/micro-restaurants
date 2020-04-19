@@ -5,7 +5,7 @@
 
     onMount(async () => {
         LogoutUser();
-        navigate("/", { replace: true });
+        navigate("/admin/", { replace: true });
         console.log("User Completely logged Out");
     });
 </script>

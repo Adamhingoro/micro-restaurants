@@ -1,10 +1,9 @@
-import { api_hostname , token } from './auth.store';
+import { api_hostname } from './auth.store';
 import axios from "axios";
 
-const GetAllRestaurants = async (token) => {
+const GetAllRestaurants = async () => {
     const restaurantsInstance = axios.create({
         baseURL: `${api_hostname}/api/v0/restaurants/`,
-        headers: {'Authorization': `Token ${token}`}
     });
     try {
         const response = await restaurantsInstance.get('/');

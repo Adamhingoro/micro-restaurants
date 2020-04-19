@@ -1,5 +1,5 @@
 <script>
-import { GetAllrestaurants } from '../../stores/restaurants.store.js';
+import { GetAllrestaurants , DeleterestaurantById , GetrestaurantById } from '../../stores/restaurants.store.js';
 import { authorized , user , token} from '../../stores/auth.store.js';
 import { navigate } from "svelte-routing";
 import { link } from "svelte-routing";
@@ -23,6 +23,18 @@ const NewObjectAnchor = () =>{
     navigate("/admin/restaurants/new", { replace: true });
 }
 
+const HandleDelete = async (id) => {
+    const restaurant = await GetrestaurantById($token , id);
+    if (confirm("Are you sure you want delete restaurant " + restaurant.name)) {
+        const res = await DeleterestaurantById($token , id);
+        if(res.status == 200){
+            alert("Restaurant Deleted successfully");
+            promise = GetAllrestaurants($token);
+        } else {
+            alert("Error Deleting");
+        }
+    }
+}
 
 
 </script>
@@ -71,7 +83,8 @@ const NewObjectAnchor = () =>{
                             <td>{ state }</td>
                             <td>{ cuisine }</td>
                             <td>
-                                <a href="/admin/restaurants/{id}" use:link><i>Edit</i></a>
+                                <a class="btn btn-primary btn-sm" href="/admin/restaurants/{id}" use:link><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+                                <button class="btn btn-danger btn-sm" on:click={ () => { HandleDelete(id) }}><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
                             </td>
                         </tr>
                     {/each}

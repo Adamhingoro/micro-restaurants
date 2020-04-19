@@ -1,6 +1,6 @@
 <script>
 import { GetAllMenus } from "../../stores/menus.store.js";
-import { GetAllMenuItemsByMenu } from "../../stores/menuitems.store.js";
+import { GetAllMenuItemsByMenu , DeleteMenuItemById , GetMenuItemById} from "../../stores/menuitems.store.js";
 import { authorized , user , token} from '../../stores/auth.store.js';
 import { navigate } from "svelte-routing";
 import { link } from "svelte-routing";
@@ -18,6 +18,18 @@ let promise = GetAllMenuItemsByMenu($token , menuId);
 
 const NewObjectAnchor = () =>{
     navigate(`/admin/menus/${menuId}/menuitems/new`, { replace: true });
+}
+
+const HandleDelete = async (id) => {
+    const menuitem = await GetMenuItemById($token , id);
+    if (confirm("Are you sure you want delete item " + menuitem.name)) {
+        const res = await DeleteMenuItemById($token , id);
+        if(res.status == 200){
+            promise = GetAllMenuItemsByMenu($token , menuId);
+        } else {
+            alert("Error Deleting");
+        }
+    }
 }
 
 
@@ -65,7 +77,8 @@ const NewObjectAnchor = () =>{
                                     <td>{ description }</td>
                                     <td>{ price }</td>
                                     <td>
-                                        <a href="/admin/menus/{menuId}/menuitems/{id}" use:link><i>Edit</i></a>
+                                        <a class="btn btn-primary btn-sm" href="/admin/menus/{menuId}/menuitems/{id}" use:link><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+                                        <button class="btn btn-danger btn-sm" on:click={ () => { HandleDelete(id) }}><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
                                     </td>
                                 </tr>
                             {/each}
