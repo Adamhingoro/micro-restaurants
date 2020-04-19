@@ -44,6 +44,11 @@ install:
   - docker-compose -f ./deployment/docker/docker-compose-build.yaml build --parallel 
   - cd microservice-users-api/
 
+before_deploy:
+  - cd ../
+  - pwd
+  - echo "Now we are good to go."
+
 deploy:
   provider: script
   script: bash docker_push
