@@ -11,7 +11,7 @@ services:
         - microservice-users-api
         - microservice-restaurants-api
         - microservice-orders-api
-        - microservice-custoemrs-api
+        - microservice-customers-api
   frontend:
     image: adamhingoro/microservice-restaurant-front:latest
     environment:
@@ -31,7 +31,7 @@ services:
         AWS_PROFILE: $AWS_PROFILE 
         AWS_BUCKET: $AWS_BUCKET
         JWT_SECRET: $JWT_SECRET
-        URL: "http://localhost:8100"
+        URL: "http://restaurant-reverseproxy:8080"
   microservice-restaurants-api:
       image: adamhingoro/restaurant-microservice-restaurants-api:latest
       environment:
@@ -43,7 +43,7 @@ services:
         AWS_PROFILE: $AWS_PROFILE 
         AWS_BUCKET: $AWS_BUCKET
         JWT_SECRET: $JWT_SECRET
-        URL: "http://localhost:8100"
+        URL: "http://restaurant-reverseproxy:8080"
   microservice-orders-api:
       image: adamhingoro/restaurant-microservice-orders-api:latest
       environment:
@@ -55,7 +55,7 @@ services:
         AWS_PROFILE: $AWS_PROFILE 
         AWS_BUCKET: $AWS_BUCKET
         JWT_SECRET: $JWT_SECRET
-        URL: "http://localhost:8100"
+        URL: "http://restaurant-reverseproxy:8080"
   microservice-customers-api:
       image: adamhingoro/restaurant-microservice-customers-api:latest
       environment:
@@ -67,4 +67,4 @@ services:
         AWS_PROFILE: $AWS_PROFILE 
         AWS_BUCKET: $AWS_BUCKET
         JWT_SECRET: $JWT_SECRET
-        URL: "http://localhost:8100"
+        URL: "http://restaurant-reverseproxy:8080"

@@ -24,6 +24,16 @@ All the requests are called upon the restaurant-reverse-proxy which handles all 
 # Frontend 
 for serving the static content I have used Nginx http server. both of the svelte parts are build and then packaged into the docker container. so before running the `docker_build` command you must run the `npm run build` in both of the svelte apps. so it would generate the distributable for the docker. 
 
+# Docker Images
+
+https://hub.docker.com/repository/docker/adamhingoro/restaurant-reverseproxy
+https://hub.docker.com/repository/docker/adamhingoro/microservice-restaurant-front
+https://hub.docker.com/repository/docker/adamhingoro/microservicefrontend
+https://hub.docker.com/repository/docker/adamhingoro/restaurant-microservice-users-api
+https://hub.docker.com/repository/docker/adamhingoro/restaurant-microservice-restaurants-api
+https://hub.docker.com/repository/docker/adamhingoro/restaurant-microservice-orders-api
+https://hub.docker.com/repository/docker/adamhingoro/restaurant-microservice-customers-api
+
 # Setup 
 1. run `npm install && npm run build` in `./microservice-frontend` & `./microservice-restaurant-front`
 
@@ -37,6 +47,13 @@ for deployment on kubernetes
 
 use the directory `./deployment/k8s/`
 
-before loading any files to the kubernetes make sure to configure the envoriment variables in env-secret.yaml and env-configmap.yaml
+before loading any files to the kubernetes make sure to configure the envoriment variables in `env-secret.yaml` and `env-configmap.yaml`
+
+# Runnig the Application
+once you deploy the application you can access the frontend : http://[your-reverse-proxy-address]:8100/admin/ for admin and http://[your-reverse-proxy-address]:8100/front/ for ordering and viewing the menu. 
+
+# Default Admin credentails
+email `adam@gmail.com`
+password `computer`
 
 # Thank You

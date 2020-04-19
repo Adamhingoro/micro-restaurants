@@ -4,12 +4,15 @@
     const OpenMenu = () =>{
         navigate(`/front/restaurant/${restaurant.id}`, { replace: true });
     }
-    let Image = "http://placehold.it/350x250" || restaurant.imageURL;
 </script>
 <div class="col col-md-12 main_box">
     <div class="row">
         <div class="col col-md-4">
-            <img class="img-rounded img-responsive"  src="{Image}" alt="{restaurant.name}" >
+            {#if restaurant.imageURL}
+                <img class="img-rounded img-responsive"  src="{restaurant.imageURL}" alt="{restaurant.name}" >
+            {:else}
+                <img class="img-rounded img-responsive"  src="http://placehold.it/350x250" alt="{restaurant.name}" >
+            {/if}
         </div>
         <div class="col col-md-8">
             <h1 class="restaurant_name">{restaurant.name}</h1>
@@ -24,7 +27,8 @@
 
 <style>
     .img-responsive{
-        width: auto;
+        width: 100%;
+        max-width: 100%;
     }
     *{
         font-family: 'Open Sans', sans-serif;

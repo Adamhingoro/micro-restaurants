@@ -23,6 +23,7 @@
     <Route path="restaurant/:id" component="{Restaurant}" />
     <Route path="about" component="{About}" />
     <Route path="/" component="{Home}" />
+    <Route component="{Home}" />
   </div>
 </Router>
 

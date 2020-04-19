@@ -1,5 +1,11 @@
 #!/bin/bash
+echo "Building the frontends"
+cd microservice-restaurant-front/
+npm run build
+cd ../
+
+cd  microservice-frontend/
+npm run build
+cd ../
 echo "Building up the images"
 docker-compose -f ./deployment/docker/docker-compose-build.yaml build 
-#echo "Building up the images"
-#docker-compose -f ./deployment/docker/docker-compose-build.yaml push 

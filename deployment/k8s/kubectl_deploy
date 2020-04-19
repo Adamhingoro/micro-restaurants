@@ -3,6 +3,7 @@ echo "Applying the envoriment variables and secrets"
 kubectl apply -f ./aws-secret.yaml
 kubectl apply -f ./env-configmap.yaml
 kubectl apply -f ./env-secret.yaml
+kubectl apply -f ./restaurant-reverseproxy-endpoint.yaml
 
 echo "Applying all services"
 kubectl apply -f ./admin-panel-service.yaml
@@ -24,3 +25,4 @@ kubectl apply -f ./restaurant-reverseproxy-deployment.yaml
 
 
 #kubectl port-forward service/restaurant-reverseproxy 8100:8100
+#kubectl port-forward pod/restaurant-reverseproxy-f6bb9d856-wf2bw 8100:8080
