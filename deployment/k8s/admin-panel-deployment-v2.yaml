@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     service: admin-panel
-  name: admin-panel
+  name: admin-panel-v2
 spec:
   replicas: 1
   strategy:
@@ -18,7 +18,7 @@ spec:
         api: external        
     spec:
       containers:
-      - image: adamhingoro/microservicefrontend:latest
+      - image: adamhingoro/microservicefrontend:okteto
         name: admin-panel
         imagePullPolicy: Always          
         ports:

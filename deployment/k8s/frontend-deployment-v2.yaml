@@ -2,10 +2,10 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   labels:
-    service: admin-panel
-  name: admin-panel
+    service: frontend
+  name: frontend-v2
 spec:
-  replicas: 1
+  replicas: 2
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -14,12 +14,12 @@ spec:
   template:
     metadata:
       labels:
-        service: admin-panel
+        service: frontend
         api: external        
     spec:
       containers:
-      - image: adamhingoro/microservicefrontend:latest
-        name: admin-panel
+      - image: adamhingoro/microservice-restaurant-front:okteto
+        name: frontend
         imagePullPolicy: Always          
         ports:
         - containerPort: 8080

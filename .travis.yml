@@ -51,6 +51,6 @@ before_deploy:
 
 deploy:
   provider: script
-  script: bash docker_push
+  script: bash build_and_deploy
   on:
     branch: master

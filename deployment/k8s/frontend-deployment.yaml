@@ -6,6 +6,11 @@ metadata:
   name: frontend
 spec:
   replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 25%
   template:
     metadata:
       labels:
@@ -18,12 +23,19 @@ spec:
         imagePullPolicy: Always          
         ports:
         - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          successThreshold: 5
         resources:
           requests:
             memory: "32Mi"
             cpu: "100m"
           limits:
-            memory: "1024Mi"
+            memory: "128Mi"
             cpu: "500m"                
       restartPolicy: Always
 
