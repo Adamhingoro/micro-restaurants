@@ -1,0 +1,17 @@
+#!/bin/bash
+echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+docker-compose -f ./deployment/docker/docker-compose-build.yaml push 
+echo "Builds pushed to Docker repo"
+
+echo "$OKTETO_SECRET" | base64 -d >> okteto-kube.config
+export KUBECONFIG=`pwd`/okteto-kube.config
+
+kubectl apply -f ./deployment/k8s/admin-panel-deployment-v2.yaml
+kubectl apply -f ./deployment/k8s/frontend-deployment-v2.yaml
+kubectl apply -f ./deployment/k8s/microservice-customers-api-deployment.yaml
+kubectl apply -f ./deployment/k8s/microservice-users-api-deployment.yaml
+kubectl apply -f ./deployment/k8s/microservice-restaurants-api-deployment.yaml
+kubectl apply -f ./deployment/k8s/microservice-orders-api-deployment.yaml
+kubectl apply -f ./deployment/k8s/restaurant-reverseproxy-deployment.yaml
+
+echo "Deployment Complete"
