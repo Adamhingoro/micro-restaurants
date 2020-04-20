@@ -7,24 +7,24 @@ services:
   frontend:
     build:
       context: ../../microservice-restaurant-front
-    image: adamhingoro/microservice-restaurant-front:latest
+    image: adamhingoro/microservice-restaurant-front:okteto
   admin-panel:
     build:
       context: ../../microservice-frontend
-    image: adamhingoro/microservicefrontend:latest
+    image: adamhingoro/microservicefrontend:okteto
   restaurant-microservice-users-api:
     build:
       context: ../../microservice-users-api
-    image: adamhingoro/restaurant-microservice-users-api:latest
+    image: adamhingoro/restaurant-microservice-users-api
   restaurant-microservice-restaurants-api:
     build:
       context: ../../microservice-restaurants-api
-    image: adamhingoro/restaurant-microservice-restaurants-api:latest
+    image: adamhingoro/restaurant-microservice-restaurants-api
   restaurant-microservice-orders-api:
     build:
       context: ../../microservice-orders-api
-    image: adamhingoro/restaurant-microservice-orders-api:latest
+    image: adamhingoro/restaurant-microservice-orders-api
   restaurant-microservice-customers-api:
     build:
       context: ../../microservice-customers-api
-    image: adamhingoro/restaurant-microservice-customers-api:latest
+    image: adamhingoro/restaurant-microservice-customers-api

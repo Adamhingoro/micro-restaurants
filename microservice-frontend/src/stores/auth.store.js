@@ -3,7 +3,7 @@ import axios from "axios";
 import { navigate } from "svelte-routing";
 
 const authorized = writable(localStorage.getItem("AUTHORIZED") || false);
-const api_hostname = "http://localhost:8100";
+const api_hostname = "https://restaurant-reverseproxy-adamhingoro.cloud.okteto.net";
 
 const user = writable(JSON.parse(localStorage.getItem("AUTH_USER")) || []);
 const UpdateUserStore = (store) => {

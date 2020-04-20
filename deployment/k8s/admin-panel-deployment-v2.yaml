@@ -1,9 +1,9 @@
-apiVersion: extensions/v1beta1
+apiVersion: extensions/v2
 kind: Deployment
 metadata:
   labels:
-    service: restaurant-reverseproxy
-  name: restaurant-reverseproxy
+    service: admin-panel
+  name: admin-panel
 spec:
   replicas: 1
   strategy:
@@ -14,19 +14,13 @@ spec:
   template:
     metadata:
       labels:
-        service: restaurant-reverseproxy
+        service: admin-panel
+        api: external        
     spec:
       containers:
-      - image: adamhingoro/restaurant-reverseproxy
-        name: restaurant-reverseproxy
+      - image: adamhingoro/microservicefrontend:okteto
+        name: admin-panel
         imagePullPolicy: Always          
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "100m"
-          limits:
-            memory: "128Mi"
-            cpu: "200m"       
         ports:
         - containerPort: 8080
         readinessProbe:
@@ -36,6 +30,12 @@ spec:
           initialDelaySeconds: 5
           periodSeconds: 5
           successThreshold: 5
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "100m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"                
       restartPolicy: Always
-
 

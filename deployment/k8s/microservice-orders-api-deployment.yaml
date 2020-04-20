@@ -35,7 +35,7 @@ spec:
             memory: "64Mi"
             cpu: "100m"
           limits:
-            memory: "1024Mi"
+            memory: "128Mi"
             cpu: "200m"                
         env:
           - name: URL 

@@ -13,15 +13,15 @@ services:
         - microservice-orders-api
         - microservice-customers-api
   frontend:
-    image: adamhingoro/microservice-restaurant-front:latest
+    image: adamhingoro/microservice-restaurant-front
     environment:
       URL: "http://localhost:8100"
   admin-panel:
-    image: adamhingoro/microservicefrontend:latest
+    image: adamhingoro/microservicefrontend
     environment:
       URL: "http://localhost:8100"
   microservice-users-api:
-      image: adamhingoro/restaurant-microservice-users-api:latest
+      image: adamhingoro/restaurant-microservice-users-api
       environment:
         POSTGRESS_USERNAME: $POSTGRESS_USERNAME
         POSTGRESS_PASSWORD: $POSTGRESS_PASSWORD 
@@ -33,7 +33,7 @@ services:
         JWT_SECRET: $JWT_SECRET
         URL: "http://restaurant-reverseproxy:8080"
   microservice-restaurants-api:
-      image: adamhingoro/restaurant-microservice-restaurants-api:latest
+      image: adamhingoro/restaurant-microservice-restaurants-api
       environment:
         POSTGRESS_USERNAME: $POSTGRESS_USERNAME
         POSTGRESS_PASSWORD: $POSTGRESS_PASSWORD 
@@ -45,7 +45,7 @@ services:
         JWT_SECRET: $JWT_SECRET
         URL: "http://restaurant-reverseproxy:8080"
   microservice-orders-api:
-      image: adamhingoro/restaurant-microservice-orders-api:latest
+      image: adamhingoro/restaurant-microservice-orders-api
       environment:
         POSTGRESS_USERNAME: $POSTGRESS_USERNAME
         POSTGRESS_PASSWORD: $POSTGRESS_PASSWORD 
@@ -57,7 +57,7 @@ services:
         JWT_SECRET: $JWT_SECRET
         URL: "http://restaurant-reverseproxy:8080"
   microservice-customers-api:
-      image: adamhingoro/restaurant-microservice-customers-api:latest
+      image: adamhingoro/restaurant-microservice-customers-api
       environment:
         POSTGRESS_USERNAME: $POSTGRESS_USERNAME
         POSTGRESS_PASSWORD: $POSTGRESS_PASSWORD 
