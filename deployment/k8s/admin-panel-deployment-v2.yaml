@@ -1,9 +1,9 @@
-apiVersion: extensions/v2
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   labels:
     service: admin-panel
-  name: admin-panel
+  name: admin-panel-v2
 spec:
   replicas: 1
   strategy:

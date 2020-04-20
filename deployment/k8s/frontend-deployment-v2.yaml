@@ -5,7 +5,7 @@ metadata:
     service: frontend
   name: frontend-v2
 spec:
-  replicas: 1
+  replicas: 2
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -35,7 +35,7 @@ spec:
             memory: "32Mi"
             cpu: "100m"
           limits:
-            memory: "1024Mi"
+            memory: "128Mi"
             cpu: "500m"                
       restartPolicy: Always
 
