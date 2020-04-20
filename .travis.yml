@@ -17,27 +17,11 @@ before_install:
   - sudo mv ./kubectl /usr/local/bin/kubectl
 
 install:
-  - cd microservice-customers-api/
-  - npm install --no-optional
-  - npm run build
-  - cd ../
   - cd microservice-frontend/
   - npm install --no-optional
   - npm run build
   - cd ../
-  - cd microservice-orders-api/
-  - npm install --no-optional
-  - npm run build
-  - cd ../
   - cd microservice-restaurant-front/
-  - npm install --no-optional
-  - npm run build
-  - cd ../
-  - cd microservice-restaurants-api/
-  - npm install --no-optional
-  - npm run build
-  - cd ../
-  - cd microservice-users-api/
   - npm install --no-optional
   - npm run build
   - cd ../
@@ -51,6 +35,6 @@ before_deploy:
 
 deploy:
   provider: script
-  script: bash build_and_deploy
+  script: bash push_and_deploy
   on:
     branch: master
