@@ -7,11 +7,11 @@ services:
   frontend:
     build:
       context: ../../microservice-restaurant-front
-    image: adamhingoro/microservice-restaurant-front:okteto
+    image: adamhingoro/microservice-restaurant-front
   admin-panel:
     build:
       context: ../../microservice-frontend
-    image: adamhingoro/microservicefrontend:okteto
+    image: adamhingoro/microservicefrontend
   restaurant-microservice-users-api:
     build:
       context: ../../microservice-users-api
