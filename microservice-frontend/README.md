@@ -1,20 +1,8 @@
-*Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
+# Adminpanel - Frontend - Svelte
 
----
+This is the admin panel for the micro-restaurants. it is designed using bootstrap-4. currently I have used the CDN URL's for the project. 
 
-# svelte app
-
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
-
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
-
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
-```
-
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
-
+It uses Axios for making API's calls with other microservices. 
 
 ## Get started
 
@@ -46,48 +34,39 @@ npm run build
 
 You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
 
+## Microservice Build 
+I have used `nginx:mainline-alpine` as a http server to serve the svelt build. One more thing I have configured is the SPA nature of the nginx. 
 
-## Single-page app mode
-
-By default, sirv will only respond to requests that match files in `public`. This is to maximise compatibility with static fileservers, allowing you to deploy your app anywhere.
-
-If you're building a single-page app (SPA) with multiple routes, sirv needs to be able to respond to requests for *any* path. You can make it so by editing the `"start"` command in package.json:
-
-```js
-"start": "sirv public --single"
-```
+3 things are done to make it work as expected. 
+1. Redirect all the trafic to a single html page
+2. Redirect all other traffic to /admin 
+3. GZIP's and other caching mechanisms for performance
 
 
-## Deploying to the web
+# Note
 
-### With [now](https://zeit.co/now)
-
-Install `now` if you haven't already:
-
-```bash
-npm install -g now
-```
-
-Then, from within your project folder:
-
-```bash
-cd public
-now deploy --name my-project
-```
-
-As an alternative, use the [Now desktop client](https://zeit.co/download) and simply drag the unzipped project folder to the taskbar icon.
-
-### With [surge](https://surge.sh/)
-
-Install `surge` if you haven't already:
-
-```bash
-npm install -g surge
-```
-
-Then, from within your project folder:
-
-```bash
+before building the docker image you must run 
+````bash
 npm run build
-surge public my-project.surge.sh
-```
+````
+becuase the docker is configured to put the `./public/` inside the container. 
+
+We can build and deploy inside the container but I tested it and the size of the container-image was much bigger than the current. So I stick with this approach. 
+
+## Docker build 
+Use the command below to build using docker. 
+````bash
+docker build --tag [your-username]/microservice-frontend:latest .
+````
+
+To run on docker simple execute 
+````bash
+docker run [your-username]/microservice-frontend:latest --publish 8080:8080
+````
+
+To push to the docker hub
+
+````bash
+docker push [your-username]/microservice-frontend:latest 
+````
+

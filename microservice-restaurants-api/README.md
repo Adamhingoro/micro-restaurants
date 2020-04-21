@@ -1,61 +1,43 @@
-# Microservice-Skeleton
-[![Build Status](https://travis-ci.com/Adamhingoro/microservice-skeleton.svg?branch=master)](https://travis-ci.com/Adamhingoro/microservice-skeleton)
-## Table of Contents
 
-- [About](#about)
-- [Getting Started](#getting_started)
-- [Usage](#usage)
-- [Contributing](../CONTRIBUTING.md)
+# Restaurants Customers API
+[![Build Status](https://travis-ci.com/Adamhingoro/micro-restaurants.svg?branch=master)](https://travis-ci.com/Adamhingoro/micro-restaurants)
 
-## About <a name = "about"></a>
+## About This Service
 
-This is the basic skeleton for microservices using ExpressJS - TypeScript - Sequilize. what I am trying to do is that if I could create a simple structure with all the must-have-components of a microservice and build a CI/CD, Testing and development features around it then we can easilly use this skeleton and build services faster. 
+````bash
+# Readme will be updated soon
+````
 
-## Contribution 
+## Endpoints
 
-I highly encourage the developers to contribute and simple way is that you have to make a seperate branch and make a pull request in the end. Please make sure it passes all the tests and linters. other wise the pull-request will be rejected. 
+````bash
+# Readme will be updated soon
+````
 
-### branch-naming
+## Model
+The application uses the `@hapi/joi` `ValidatedRequestSchema` and it expects the following object while creating and patching. 
 
-name your branch wisely. example branch names are `feature-events-sourcing` and `fixed-issue-no-1234`. please use dashed-names. 
+````bash
+# Readme will be updated soon
+````
 
-I have used the standard readme structure and everything beyond this line is not the part of this project. I will write it later.
+## Steps for running locally 
+1. cd [to this directory]
+2. modify the `./src/config/config.ts`
+    if you want to run locally I suggest you should use the local postgres database credentails in the `prod` or `dev`
+3. modify the envoriment in file `./src/database/sequelize.ts` 
+    use the `config.prod` or `config.dev` as per your needs. 
+4. `npm install`
+5. `npm run dev`
 
+Application will run on port `8080`
 
-## Getting Started <a name = "getting_started"></a> - AREA INCOMPLETE
+## Steps for running on container
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+Please check the readme in the root direcory.
 
-### Prerequisites - AREA INCOMPLETE
+## Additional notes. 
+1. it uses sequelize and creates tables based on the models defined in the `./src/models/`
+2. You can use mysql for local as I have used. You have to change the dialect to `"mysql"` in file `./src/database/sequelize.ts` 
+3. It uses `chai` and `mocha` for testing but for now I haven't created any tests yet. 
 
-What things you need to install the software and how to install them.
-
-```
-Give examples
-```
-
-### Installing - AREA INCOMPLETE
-
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo.
-
-## Usage <a name = "usage"></a> - AREA INCOMPLETE
-
-Add notes about how to use the system.
-
-
-
-## Bucket Policy for AMAZON s3

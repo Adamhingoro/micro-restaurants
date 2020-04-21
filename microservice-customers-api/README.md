@@ -2,19 +2,7 @@
 # Restaurants Customers API
 [![Build Status](https://travis-ci.com/Adamhingoro/micro-restaurants.svg?branch=master)](https://travis-ci.com/Adamhingoro/micro-restaurants)
 
-this api is build using microservices skeleton
-https://github.com/Adamhingoro/microservice-skeleton
-## Microservice Skeleton
-it is a simple skack microservice stack with all the important tools. 
-1. typescript
-2. expressjs 
-3. chai and mocha
-4. jsonwebtoken
-5. sequelize
-
-with preety much everything in place to help you get started. 
-
-## About This
+## About This Service
 
 Initially it was a monolith application and now it is divided into the smaller parts which can be deployed on docker or any kubernetes cluster. 
 
