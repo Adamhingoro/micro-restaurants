@@ -1,6 +1,9 @@
 # Micro Restaurants
 [![Build Status](https://travis-ci.com/Adamhingoro/micro-restaurants.svg?branch=master)](https://travis-ci.com/Adamhingoro/micro-restaurants)
 
+[![Micro Restaurants](https://i.ibb.co/4pKwNM2/adamhingora-01.jpg)
+
+
 Micro Restaurants is a multi-restaurant management system developed using the **Microservice Skeleton** which uses the
 1. Typescript - for development.
 2. Sequelize JS - for database and modeling
