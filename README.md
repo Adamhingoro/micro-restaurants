@@ -40,15 +40,15 @@ https://hub.docker.com/repository/docker/adamhingoro/restaurant-microservice-ord
 https://hub.docker.com/repository/docker/adamhingoro/restaurant-microservice-customers-api
 
 ## Setup 
-1. run `npm install && npm run build` in `./microservice-frontend` & `./microservice-restaurant-front`
+1. run `./install` and if you find any security issues or if you want to udpate the packages then you can run `./update`.
 
 2. configure the envoriment variables for docker in `./deployment/docker/docker-compose-build.yaml`
     you can set different database for each service or you can use one database for all of the services. 
     make sure to use same `JWT_SECRET` because the user token will be verified on all of the services. 
     
-3. run the files `docker_build` and then `docker_run`
+3. run the files `./docker_build` and then `./docker_run`
 
-for deployment on kubernetes 
+## for deployment on kubernetes 
 
 use the directory `./deployment/k8s/`
 

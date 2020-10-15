@@ -1,0 +1,24 @@
+#!/bin/bash
+echo "Running NPM Update in all services."
+cd microservice-restaurant-front/
+npm update --no-optional
+cd ../
+
+cd  microservice-frontend/
+npm update --no-optional
+cd ../
+
+cd  microservice-customers-api/
+npm update --no-optional
+cd ../
+
+cd  microservice-orders-api/
+npm update --no-optional
+cd ../
+
+cd  microservice-restaurants-api/
+npm update --no-optional
+cd ../
+
+
+echo "Update Complete"
