@@ -24,6 +24,7 @@ install:
   - ./update
   - ./build
   - docker-compose -f ./deployment/docker/docker-compose-build.yaml build --parallel 
+  - cd microservice-users-api/
 
 before_deploy:
   - cd ../
