@@ -17,12 +17,30 @@ before_install:
   - sudo mv ./kubectl /usr/local/bin/kubectl
 
 install:
-  - chmod +x ./install
-  - chmod +x ./update
-  - chmod +x ./build
-  - ./install
-  - ./update
-  - ./build
+  - cd microservice-customers-api/
+  - npm install --no-optional
+  - npm run build
+  - cd ../
+  - cd microservice-frontend/
+  - npm install --no-optional
+  - npm run build
+  - cd ../
+  - cd microservice-orders-api/
+  - npm install --no-optional
+  - npm run build
+  - cd ../
+  - cd microservice-restaurant-front/
+  - npm install --no-optional
+  - npm run build
+  - cd ../
+  - cd microservice-restaurants-api/
+  - npm install --no-optional
+  - npm run build
+  - cd ../
+  - cd microservice-users-api/
+  - npm install --no-optional
+  - npm run build
+  - cd ../
   - docker-compose -f ./deployment/docker/docker-compose-build.yaml build --parallel 
   - cd microservice-users-api/
 
