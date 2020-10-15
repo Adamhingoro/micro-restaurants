@@ -19,8 +19,10 @@ before_install:
 install:
   - chmod +x ./install
   - chmod +x ./update
+  - chmod +x ./build
   - ./install
   - ./update
+  - ./build
   - docker-compose -f ./deployment/docker/docker-compose-build.yaml build --parallel 
 
 before_deploy:

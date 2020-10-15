@@ -1,0 +1,24 @@
+#!/bin/bash
+echo "Running NPM Build in all services."
+cd microservice-restaurant-front/
+npm run build
+cd ../
+
+cd  microservice-frontend/
+npm run build
+cd ../
+
+cd  microservice-customers-api/
+npm run build
+cd ../
+
+cd  microservice-orders-api/
+npm run build
+cd ../
+
+cd  microservice-restaurants-api/
+npm run build
+cd ../
+
+
+echo "Build Complete"
