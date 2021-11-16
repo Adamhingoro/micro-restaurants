@@ -19,7 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
-    "aws-sdk": "^2.771.0",
+    "aws-sdk": "^2.814.0",
     "bcrypt": "^4.0.1",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
